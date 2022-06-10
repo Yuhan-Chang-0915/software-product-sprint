@@ -26,3 +26,19 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+
+/**
+ * Async function loads the server content
+ */
+async function randomFactLoadFromServer(){
+    const serverResponse = await fetch('/facts');
+    const serverResponseJson = await serverResponse.json();
+    console.log(serverResponseJson);
+    // Pick a random fact.
+    const fact = serverResponseJson[Math.floor(Math.random() * serverResponseJson.length)];
+
+    // Add it to the page.
+    const factContainer = document.getElementById('fact-container');
+    factContainer.innerText = fact['fact'];
+
+}
