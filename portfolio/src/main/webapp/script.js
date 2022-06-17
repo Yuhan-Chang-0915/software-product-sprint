@@ -31,7 +31,12 @@ function addRandomGreeting() {
  * Async function loads the server content
  */
 async function randomFactLoadFromServer(){
-    const serverResponse = await fetch('/facts');
+    
+    const serverResponse = await fetch('/facts')
+        .catch((error) => {
+            // error is here!
+            console.log("[ERROR]"+error)
+          });
     const serverResponseJson = await serverResponse.json();
     console.log(serverResponseJson);
     // Pick a random fact.
