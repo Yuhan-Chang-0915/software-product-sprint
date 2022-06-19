@@ -69,7 +69,7 @@
       <img id="Yuhan_pic" src="images/IMG_0593.JPG" alt="My social picture">
 
 
-      <form action="/form-handler" method="POST">
+      <form action="/save-data" method="POST">
         <p>Contact Form</p>
         <label for="name">Enter your name:</label>
         <input type="name" id="name" name="name">
@@ -77,12 +77,15 @@
         <label for="email">Enter your email:</label>
         <input type="email" id="email" name="email">
         <br>
-        <label for="description">Please provide details for your information:</label>
-        <textarea  id="description" name="description"></textarea>
+        <label for="message">Please provide details for your information:</label>
+        <textarea  id="message" name="message"></textarea>
         <br/>
         <input type="submit" >
       </form>
 
+      <p>Click <button id="load-forms-btn" onClick="loadContactFormData()">here</button> to view the form data from dataStore</p>
+      <div id="form-data-display-container"></div>
+      
       <p>Click <a href="/facts">here</a> to see <i class="fa-solid fa-pretzel"></i>content created by server code.</p>
 
       <p>Click the button below to load a random fact from server</p>
