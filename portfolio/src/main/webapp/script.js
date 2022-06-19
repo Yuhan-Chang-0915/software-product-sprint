@@ -28,7 +28,7 @@ function addRandomGreeting() {
 }
 
 /**
- * Async function loads the server content
+ * Async function loads the random fact server content
  */
 async function randomFactLoadFromServer(){
     
@@ -46,4 +46,17 @@ async function randomFactLoadFromServer(){
     const factContainer = document.getElementById('fact-container');
     factContainer.innerText = fact['fact'];
 
+}
+
+/**
+ * Async function loads the contact me data from the DataStore
+ */
+async function loadContactFormData(){
+    const serverResponse = await fetch('/load-data');
+    const serverResponseJson = await serverResponse.json();
+    const formDataContainer = document.getElementById('form-data-display-container');
+
+    // use JSON library to print the string of the response
+    formDataContainer.innerText = JSON.stringify(serverResponseJson);
+    console.log(serverResponseJson);
 }
